@@ -32,6 +32,7 @@ const CurrentSongScreen = () => {
     if (selectedSong?.url) {
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
+      setDuration(selectedSong?.duration)
       setIsPlaying(true);
       audioRef.current.play();
       if (isMuted) {
