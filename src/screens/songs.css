@@ -1,0 +1,81 @@
+#songs-main-div {
+  width: 100%;
+  /* justify-content: center; */
+  height: 100vh;
+  /* align-items: center; */
+  /* height: 100vh; */
+  /* background-color: green; */
+}
+
+#for-you-text-container {
+  color: white;
+  /* background-color: aqua; */
+  width: 100%;
+}
+
+#search-songs-container {
+  width: 100%;
+  /* background-color: red; */
+  margin: 20px 0;
+  padding: 0;
+  /* display: flex; */
+  position: relative;
+}
+#search-songs-input {
+  background-color: transparent;
+  width: 100%;
+  border-radius: 6px;
+  background-color: rgba(256, 256, 256, 0.08);
+  border-color: transparent;
+  padding-left: 10px;
+  margin: 0;
+  display: inline;
+  /* border-width: 0; */
+  height: 40px;
+}
+
+#search-icon-container {
+  right: 0;
+  /* align-items: center; */
+  position: absolute;
+  display: inline;
+  /* justify-content: center; */
+  height: 40px;
+  z-index: 10;
+}
+
+.loader{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+.loading-text{
+  /* background-color: aqua; */
+  display: inline;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  #for-you-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.loader{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+.loading-text{
+  /* background-color: aqua; */
+  display: inline;
+  font-size: 24px;
+}
+}

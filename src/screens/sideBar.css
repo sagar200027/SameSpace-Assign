@@ -1,0 +1,10 @@
+.selectedTab{
+    opacity: 1;
+}
+.unselectedTab{
+    opacity: 0.5;
+}
+
+.tabText{
+    margin: 10px 0;
+}
