@@ -42,7 +42,7 @@ const CurrentSongScreen = () => {
       audioRef.current.muted = false;
       setIsMuted(false);
     }
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [selectedSong]);
 
   useEffect(() => {
@@ -100,7 +100,7 @@ const CurrentSongScreen = () => {
 
   const handleColorsExtracted = (colors) => {
     console.log("colors", colors);
-    colors.then((res) => dispatch(setGradientColors(res)));
+    dispatch(setGradientColors(colors));
   };
 
   if (!selectedSong) {
@@ -149,7 +149,12 @@ const CurrentSongScreen = () => {
               </h6>
             </div>
             <img
-              style={{ width: "100%", marginTop: "0px" }}
+              style={{
+                width: "100%",
+                height: "50vh",
+                aspectRatio: 1,
+                marginTop: "0px",
+              }}
               alt="Song Cover"
               src={selectedSong?.photo}
             />
@@ -159,17 +164,19 @@ const CurrentSongScreen = () => {
             <audio ref={audioRef} src={selectedSong?.url} />
 
             <div className="center">
-              <span>{formatTime(currentTime)}</span>
+              {/* <span>{formatTime(currentTime)}</span> */}
               <input
+                style={{ flex: 1 }}
                 type="range"
                 value={currentTime}
-                max={duration}
+                color="white"
+                max={217}
                 onChange={(e) => {
                   audioRef.current.currentTime = e.target.value;
                   setCurrentTime(e.target.value);
                 }}
               />
-              <span>{formatTime(duration)}</span>
+              {/* <span>{formatTime(217)}</span> */}
             </div>
 
             <div className="player">
@@ -244,13 +251,14 @@ const CurrentSongScreen = () => {
             <audio ref={audioRef} src={selectedSong?.url} />
             <div class="center">
               <input
+                style={{ flex: 1 }}
                 type="range"
-                value={(currentTime / duration) * 100}
-                max={duration}
+                value={currentTime}
+                color="white"
+                max={217}
                 onChange={(e) => {
-                  const seekTime = (e.target.value / 100) * duration;
-                  audioRef.current.currentTime = seekTime;
-                  setCurrentTime(seekTime);
+                  audioRef.current.currentTime = e.target.value;
+                  setCurrentTime(e.target.value);
                 }}
               />
             </div>
