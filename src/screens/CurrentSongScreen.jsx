@@ -23,7 +23,7 @@ const CurrentSongScreen = () => {
   // console.log(currentSongIndex, songsLength);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  // const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = React.useRef(null);
 
@@ -36,7 +36,7 @@ const CurrentSongScreen = () => {
         .catch((err) => console.log(err));
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
-      setDuration(selectedSong?.duration);
+      // setDuration(selectedSong?.duration);
       setIsPlaying(true);
       audioRef.current.play();
       audioRef.current.muted = false;
@@ -54,7 +54,7 @@ const CurrentSongScreen = () => {
       };
 
       const handleLoadedData = () => {
-        setDuration(audioElement.duration);
+        // setDuration(audioElement.duration);
       };
 
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -87,11 +87,11 @@ const CurrentSongScreen = () => {
     dispatch(currentIndex(prevIndex));
     // setCurrentSongIndex(prevIndex);
   };
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-  };
+  // const formatTime = (time) => {
+  //   const minutes = Math.floor(time / 60);
+  //   const seconds = Math.floor(time % 60);
+  //   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  // };
 
   const handleMute = () => {
     audioRef.current.muted = !isMuted;
