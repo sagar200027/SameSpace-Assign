@@ -11,7 +11,8 @@ import {
   FaVolumeOff,
   FaEllipsisV,
 } from "react-icons/fa";
-import { ColorExtractor } from "react-color-extractor";
+// import { Color } from "react-color-surge/dist/index";
+import { colorDetection, toHex } from "@dominate-color-js/core";
 
 const CurrentSongScreen = () => {
   const { selectedSong, currentSongIndex, songsLength } = useSelector(
@@ -30,9 +31,13 @@ const CurrentSongScreen = () => {
   useEffect(() => {
     // Reset the audio player whenever the audioUrl prop changes
     if (selectedSong?.url) {
+      const colors = colorDetection(selectedSong?.photo)
+        .then(toHex)
+        .then((res) => dispatch(setGradientColors(res)))
+        .catch((err) => console.log(err));
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
-      setDuration(selectedSong?.duration)
+      setDuration(selectedSong?.duration);
       setIsPlaying(true);
       audioRef.current.play();
       if (isMuted) {
@@ -96,8 +101,8 @@ const CurrentSongScreen = () => {
   };
 
   const handleColorsExtracted = (colors) => {
+    console.log("colors", colors);
     dispatch(setGradientColors(colors.slice(0, 3)));
-    // console.log("colors", colors.slice(0, 3));
   };
 
   if (!selectedSong) {
@@ -145,12 +150,12 @@ const CurrentSongScreen = () => {
                 {selectedSong?.artist}
               </h6>
             </div>
-            <ColorExtractor getColors={handleColorsExtracted}>
-              <img
-                style={{ width: "100%", marginTop: "0px" }}
-                src={selectedSong?.photo}
-              />
-            </ColorExtractor>
+            <img
+              style={{ width: "100%", marginTop: "0px" }}
+              src={selectedSong?.photo}
+            />
+            {/* <ColorExtractor getColors={handleColorsExtracted}>
+            </ColorExtractor> */}
 
             <audio ref={audioRef} src={selectedSong?.url} />
 
@@ -225,7 +230,11 @@ const CurrentSongScreen = () => {
             </div>
 
             <div class="player">
-              <button onClick={handlePlayPause} class="player-button" id="play-pause-button">
+              <button
+                onClick={handlePlayPause}
+                class="player-button"
+                id="play-pause-button"
+              >
                 {isPlaying ? <FaPause /> : <FaPlay />}
               </button>
               {/* <!-- Add your like button code here --> */}

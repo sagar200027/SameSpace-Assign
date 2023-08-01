@@ -30,7 +30,12 @@ const counterSlice = createSlice({
       state.currentSongIndex = actions.payload;
     },
     setGradientColors(state, actions) {
-      state.gradientColors = actions.payload;
+      state.gradientColors = [
+        actions.payload[0],
+        actions.payload[0],
+        actions.payload[0],
+      ];
+      console.log("actions.payload", actions.payload);
     },
     // songs(state) {
     //   console.log("songs state", state);
@@ -40,5 +45,6 @@ const counterSlice = createSlice({
   },
 });
 
-export const { tab, song, songLength,setGradientColors, currentIndex } = counterSlice.actions;
+export const { tab, song, songLength, setGradientColors, currentIndex } =
+  counterSlice.actions;
 export default counterSlice.reducer;

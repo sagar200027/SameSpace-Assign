@@ -3,7 +3,6 @@ import { tab } from "../redux/Reducers";
 import "./sideBar.css";
 
 import React from "react";
-import "react-sidebar-ui/dist/index.css";
 
 const SideBar = () => {
   const selectedTab = useSelector((state) => state.selectedTab);
