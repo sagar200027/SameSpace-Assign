@@ -15,7 +15,7 @@ const SideBar = () => {
   return (
     <div>
       {/* <Sidebar bgColor="black" isCollapsed={false}> */}
-      <img className="imgee" src={require("../images/Spotify.png")} />
+      <img className="imgee" alt="Spotify logo" src={require("../images/Spotify.png")} />
 
       <div className="bgColorItem">
         <div

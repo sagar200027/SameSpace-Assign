@@ -1,10 +1,6 @@
-import { useState } from "react";
 import "./App.css";
-import Songs from "./screens/Songs";
-import CurrentSongScreen from "./screens/CurrentSongScreen";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import SideBar from "./screens/SideBar";
 import { Provider } from "react-redux";
 import store from "./redux/Store";
 import Main from "./screens/Main";

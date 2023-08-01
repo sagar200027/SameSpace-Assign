@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./songs.css";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { gql, useLazyQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { currentIndex, song, songLength } from "../redux/Reducers";
 
@@ -18,23 +18,18 @@ const GET_SONGS_LIST = gql`
 `;
 
 const Songs = () => {
-  const [searchText, setSearchText] = useState("");
   const { selectedSong, selectedTab, currentSongIndex } = useSelector(
     (state) => state
   );
   const [filteredData, setFilteredData] = useState([]);
   const dispatch = useDispatch();
 
-  const [callSongsApi, { loading, error, data }] = useLazyQuery(
-    GET_SONGS_LIST,
-    {
-      variables: {
-        id: 1,
-      },
-    }
-  );
-
-  useEffect(() => {
+  const [callSongsApi, { loading, data }] = useLazyQuery(GET_SONGS_LIST, {
+    variables: {
+      id: 1,
+    },
+  });
+  const handleCallApi = () => {
     callSongsApi({
       variables: {
         id: selectedTab,
@@ -42,11 +37,21 @@ const Songs = () => {
     }).then((res) => {
       setFilteredData(res?.data?.getSongs);
     });
+  };
+
+  useEffect(() => {
+    handleCallApi();
+    //eslint-disable-next-line
   }, [selectedTab]);
 
   useEffect(() => {
-    dispatch(song(data?.getSongs?.[currentSongIndex]));
+    handleDiscptachNewSong();
+    // eslint-disable-next-line
   }, [currentSongIndex]);
+
+  const handleDiscptachNewSong = () => {
+    dispatch(song(data?.getSongs?.[currentSongIndex]));
+  };
 
   const handleSearch = (event) => {
     const searchValue = event.target.value.toLowerCase();
@@ -55,7 +60,6 @@ const Songs = () => {
     );
     // console.log('rgetdfvgdfv',searchValue,filtered);
     setFilteredData(filtered);
-    setSearchText(searchValue);
   };
 
   const handleSongSelect = (item, index) => {
@@ -82,6 +86,9 @@ const Songs = () => {
       }
       case 4: {
         return "Recently Played";
+      }
+      default: {
+        return "";
       }
     }
   };
@@ -113,6 +120,7 @@ const Songs = () => {
         <div id="search-icon-container">
           <img
             style={{ marginRight: "10px", marginTop: "3px" }}
+            alt="Search Icon"
             src={require("../images/SearchIcon.png")}
           />
         </div>
@@ -131,7 +139,7 @@ const Songs = () => {
                 padding: "10px",
                 borderRadius: "10px",
                 backgroundColor:
-                  selectedSong?.title == item?.title
+                  selectedSong?.title === item?.title
                     ? "rgba(256,256,256,0.2)"
                     : "transparent",
               }}
@@ -140,6 +148,7 @@ const Songs = () => {
                 <img
                   style={{ borderRadius: 50, width: "60px", height: "60px" }}
                   src={item?.photo}
+                  alt="song cover"
                 />
                 <div
                   style={{

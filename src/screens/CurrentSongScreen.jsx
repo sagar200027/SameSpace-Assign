@@ -19,7 +19,6 @@ const CurrentSongScreen = () => {
     (state) => state
   );
   // const [isMuted, setIsMuted] = useState(false);
-  const toggleMute = () => setIsMuted((prevMute) => !prevMute);
   const dispatch = useDispatch();
   // console.log(currentSongIndex, songsLength);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -31,20 +30,19 @@ const CurrentSongScreen = () => {
   useEffect(() => {
     // Reset the audio player whenever the audioUrl prop changes
     if (selectedSong?.url) {
-      const colors = colorDetection(selectedSong?.photo)
+      colorDetection(selectedSong?.photo)
         .then(toHex)
-        .then((res) => dispatch(setGradientColors(res)))
+        .then((res) => handleColorsExtracted(res))
         .catch((err) => console.log(err));
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
       setDuration(selectedSong?.duration);
       setIsPlaying(true);
       audioRef.current.play();
-      if (isMuted) {
-        audioRef.current.muted = false;
-        setIsMuted(false);
-      }
+      audioRef.current.muted = false;
+      setIsMuted(false);
     }
+  // eslint-disable-next-line
   }, [selectedSong]);
 
   useEffect(() => {
@@ -102,7 +100,7 @@ const CurrentSongScreen = () => {
 
   const handleColorsExtracted = (colors) => {
     console.log("colors", colors);
-    dispatch(setGradientColors(colors.slice(0, 3)));
+    colors.then((res) => dispatch(setGradientColors(res)));
   };
 
   if (!selectedSong) {
@@ -152,6 +150,7 @@ const CurrentSongScreen = () => {
             </div>
             <img
               style={{ width: "100%", marginTop: "0px" }}
+              alt="Song Cover"
               src={selectedSong?.photo}
             />
             {/* <ColorExtractor getColors={handleColorsExtracted}>
