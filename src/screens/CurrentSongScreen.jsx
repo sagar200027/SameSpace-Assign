@@ -130,8 +130,8 @@ const CurrentSongScreen = () => {
   } else {
     return (
       <>
-        <div id="div-31" className="display_none">
-          <div id="div-32">
+        <div id="current-song-screen-main-div" className="display_none">
+          <div id="current-song-screen-sub-div">
             <div id="display_none">
               <h1 style={{ fontWeight: "bold", fontSize: "25px" }}>
                 {selectedSong?.title}
@@ -163,7 +163,7 @@ const CurrentSongScreen = () => {
 
             <audio ref={audioRef} src={selectedSong?.url} />
 
-            <div className="center">
+            <div className="audio-scrollbar-div">
               {/* <span>{formatTime(currentTime)}</span> */}
               <input
                 style={{ flex: 1 }}
@@ -179,7 +179,7 @@ const CurrentSongScreen = () => {
               {/* <span>{formatTime(217)}</span> */}
             </div>
 
-            <div className="player">
+            <div className="audio-player-buttons-div">
               <button
                 className="player-button display_none"
                 id="options-button"
@@ -220,15 +220,15 @@ const CurrentSongScreen = () => {
 
         <div id="div-31" class="displaymax">
           <div id="div-32" class="button_player">
-            <div class="image">
+            <div class="current-song-cover-container">
               <img
-                class="imgaa"
+                class="current-song-cover-image"
                 style={{ borderRadius: 50, width: "80px", height: "80px" }}
                 src={selectedSong?.photo}
                 alt="Song Cover"
               />
             </div>
-            <div class="song-details">
+            <div class="current-song-details-mobile">
               <p style={{ fontSize: "18px" }}>{selectedSong?.title}</p>
               <p style={{ fontSize: "13px", opacity: "0.5" }}>
                 {selectedSong?.artist}

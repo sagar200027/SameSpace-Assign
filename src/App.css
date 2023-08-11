@@ -10,140 +10,18 @@
   color: white;
   /* font-family: "Basier Circle"; */
 }
-.app {
-  display: flex;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: #070e1d;
-}
-.bgColorItem {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  padding-left: 18px;
-  align-content: center;
-  justify-content: center;
-  align-items: flex-start;
-}
-.imgee {
-  margin-top: 23px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
 .item {
   margin-top: 10px;
 }
 .displaymax {
   display: none !important;
 }
-#div-1 {
-  /* background-color: rgb(240, 246, 255);  */
-  width: 20%;
-  height: 100vh;
-  display: inline;
-}
-
-#div-2 {
-  /* background-color: blue;  */
-  width: 30%;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  display: inline;
-}
-#div-3 {
-  /* background-color: brown; */
-  width: 50%;
-  height: 100vh;
-  display: inline;
-}
-
-.list {
-  height: 73vh;
-  overflow: auto;
-  /* overflow: visible; */
-}
-.list::-webkit-scrollbar {
-  display: none;
-}
-
 /* Styling for the player container */
-.player {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: flex-start;
-}
 
 /* Styling for the player buttons */
-.player-button {
-  width: 50px;
-  height: 50px;
-  background-color: #070e1d;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
 
-/* Styling for the button icons (you can use font-awesome or other icon libraries) */
-.player-button i {
-  font-size: 24px;
-  color: #ffffff;
-}
-
-/* Styling for button hover effects */
-.player-button:hover {
-  background-color: #14a048;
-}
-
-/* Styling for button active (pressed) effects */
-.player-button:active {
-  background-color: #0e7139;
-}
-
-.center {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
-}
 
 @media screen and (max-width: 768px) {
-  .app {
-    flex-direction: column;
-    height: 104vh;
-  }
-  #div-1 {
-    background-color: rgb(240, 246, 255);
-    width: max-content;
-    height: max-content;
-    display: inline;
-  }
-
-  #div-2 {
-    /* background-color: blue;  */
-    width: 100%;
-    height: fit-content;
-    padding: 0;
-    margin: 0;
-    display: inline;
-    height: 81vh;
-  }
-  #div-3 {
-    /* background-color: brown; */
-    width: fit-content;
-    height: fit-content;
-    display: inline;
-  }
-
   .displaymax {
     display: block !important;
   }
@@ -152,85 +30,5 @@
   }
   #display_none {
     display: none !important;
-  }
-  #div-32 {
-    width: 96% !important;
-
-    height: max-content;
-  }
-  #songs-main-div {
-    height: 86vh;
-  }
-  .artist {
-    color: #070e1d;
-  }
-  .audio_player {
-  }
-  .button_player {
-    display: flex;
-  }
-  .image {
-    margin-top: auto;
-    margin-left: 29px;
-    border: aliceblue solid 5px;
-    border-radius: 38px;
-  }
-  .imgaa {
-    width: -webkit-fill-available;
-  }
-  #div-3 {
-    /* background-color: brown; */
-    width: 100% !important;
-    height: 100vh;
-    /* display: inline; */
-  }
-  .list {
-    height: 67vh !important;
-    overflow: auto;
-    /* overflow: hidden; */
-  }
-
-  .button_player {
-    display: flex;
-    align-items: center;
-    gap: 33.4px;
-  }
-
-  .imgaa {
-    width: 100px;
-    height: 100px;
-    /* Add any additional styles for the song image here */
-  }
-
-  .song-details {
-    width: 90%;
-    color: azure;
-  }
-
-  .player {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .player-button {
-    width: 50px;
-    height: 50px;
-    background-color: #1db954;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .audio_player {
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
   }
 }
