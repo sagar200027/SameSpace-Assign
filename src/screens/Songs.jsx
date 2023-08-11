@@ -120,7 +120,7 @@ const Songs = () => {
         />
         <div id="search-icon-container">
           <img
-            style={{ marginRight: "10px", marginTop: "3px" }}
+            style={{  marginTop: "3px" }}
             alt="Search Icon"
             src={require("../images/SearchIcon.png")}
           />

@@ -14,20 +14,23 @@
 }
 
 #search-songs-container {
-  width: 95%;
-  /* background-color: red; */
-  margin: 20px auto;
+  width: 100%;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
   padding: 0;
   /* display: flex; */
   position: relative;
 }
 
 #search-songs-input {
-  background-color: transparent;
-  width: 96%;
+  width: 94%;
   border-radius: 6px;
   background-color: rgba(256, 256, 256, 0.08);
   border-color: transparent;
+  /* background-color: pink; */
   padding-left: 10px;
   margin: 0;
   display: inline;
@@ -36,14 +39,15 @@
 }
 
 #search-icon-container {
-  right: 0  ;
-  top: 0.2rem;
-  /* align-items: center; */
+  /* top: 0.2rem; */
   position: absolute;
-  display: inline;
-  /* justify-content: center; */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
   height: 40px;
   z-index: 10;
+  right: 3%;
 }
 
 .loader-container {
