@@ -14,16 +14,17 @@
 }
 
 #search-songs-container {
-  width: 100%;
+  width: 95%;
   /* background-color: red; */
-  margin: 20px 0;
+  margin: 20px auto;
   padding: 0;
   /* display: flex; */
   position: relative;
 }
+
 #search-songs-input {
   background-color: transparent;
-  width: 100%;
+  width: 96%;
   border-radius: 6px;
   background-color: rgba(256, 256, 256, 0.08);
   border-color: transparent;
@@ -35,7 +36,8 @@
 }
 
 #search-icon-container {
-  right: 0;
+  right: 0  ;
+  top: 0.2rem;
   /* align-items: center; */
   position: absolute;
   display: inline;
