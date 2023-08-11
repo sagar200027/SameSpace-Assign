@@ -1,0 +1,64 @@
+.app {
+  display: flex;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #070e1d;
+}
+
+#div-1 {
+  /* background-color: rgb(240, 246, 255);  */
+  width: 20%;
+  height: 100vh;
+  display: inline;
+}
+
+#div-2 {
+  /* background-color: blue;  */
+  width: 30%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+#div-3 {
+  /* background-color: brown; */
+  width: 50%;
+  height: 100vh;
+  display: inline;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    height: 104vh;
+  }
+  #div-1 {
+    background-color: rgb(240, 246, 255);
+    width: max-content;
+    height: max-content;
+    display: inline;
+  }
+
+  #div-2 {
+    /* background-color: blue;  */
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    height: 81vh;
+  }
+  #div-3 {
+    /* background-color: brown; */
+    width: fit-content;
+    height: fit-content;
+    display: inline;
+  }
+  #div-3 {
+    /* background-color: brown; */
+    width: 100% !important;
+    height: 100vh;
+    /* display: inline; */
+  }
+}

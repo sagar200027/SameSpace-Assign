@@ -7,27 +7,14 @@ import Main from "./screens/Main";
 
 function App() {
   const client = new ApolloClient({
-    uri: "https://api.ss.dev/resource/api", // Replace this with your actual GraphQL API URL
+    uri: "https://api.ss.dev/resource/api",
     cache: new InMemoryCache(),
   });
 
   return (
     <Provider store={store}>
       <ApolloProvider client={client}>
-        {/* <div className="app">
-           <div id="div-1">
-            <SideBar
-            /> 
-          </div>
-          <div id="div-2">
-            <Songs
-            />
-          </div>
-          <div  id="div-3">
-            <CurrentSongScreen/>
-          </div>
-        </div> */}
-        <Main/>
+        <Main />
       </ApolloProvider>
     </Provider>
   );

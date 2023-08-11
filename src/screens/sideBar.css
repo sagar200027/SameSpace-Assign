@@ -1,10 +1,26 @@
-.selectedTab{
-    opacity: 1;
+.selectedTab {
+  opacity: 1;
 }
-.unselectedTab{
-    opacity: 0.5;
+.unselectedTab {
+  opacity: 0.5;
 }
 
-.tabText{
-    margin: 10px 0;
+.tabText {
+  margin: 10px 0;
+}
+
+.imgee {
+  margin-top: 23px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.bgColorItem {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 18px;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
 }

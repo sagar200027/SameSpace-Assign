@@ -18,17 +18,18 @@ const GET_SONGS_LIST = gql`
 `;
 
 const Songs = () => {
+  const dispatch = useDispatch();
   const { selectedSong, selectedTab, currentSongIndex } = useSelector(
     (state) => state
   );
   const [filteredData, setFilteredData] = useState([]);
-  const dispatch = useDispatch();
 
   const [callSongsApi, { loading, data }] = useLazyQuery(GET_SONGS_LIST, {
     variables: {
       id: 1,
     },
   });
+
   const handleCallApi = () => {
     callSongsApi({
       variables: {
@@ -45,11 +46,11 @@ const Songs = () => {
   }, [selectedTab]);
 
   useEffect(() => {
-    handleDiscptachNewSong();
+    handleDispatchNewSong();
     // eslint-disable-next-line
   }, [currentSongIndex]);
 
-  const handleDiscptachNewSong = () => {
+  const handleDispatchNewSong = () => {
     dispatch(song(data?.getSongs?.[currentSongIndex]));
   };
 
@@ -96,10 +97,10 @@ const Songs = () => {
   if (loading) {
     return (
       <div id="songs-main-div">
-        <div id="for-you-text-container">
-          <h1 id="for-you-text">{handleTabText()}</h1>
+        <div id="songs-screen-title-container">
+          <h1 id="songs-screen-title-text">{handleTabText()}</h1>
         </div>
-        <div className="loader">
+        <div className="loader-container">
           <h4 className="loading-text">Loading...</h4>
         </div>
       </div>
@@ -108,8 +109,8 @@ const Songs = () => {
 
   return (
     <div id="songs-main-div">
-      <div id="for-you-text-container">
-        <h1 id="for-you-text">{handleTabText()}</h1>
+      <div id="songs-screen-title-container">
+        <h1 id="songs-screen-title-text">{handleTabText()}</h1>
       </div>
       <div id="search-songs-container">
         <input
@@ -126,7 +127,7 @@ const Songs = () => {
         </div>
       </div>
 
-      <div className="list">
+      <div className="songs-list-container">
         {filteredData?.map((item, index) => {
           // console.log('index',item,index);
           return (

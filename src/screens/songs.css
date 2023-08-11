@@ -7,7 +7,7 @@
   /* background-color: green; */
 }
 
-#for-you-text-container {
+#songs-screen-title-container {
   color: white;
   /* background-color: aqua; */
   width: 100%;
@@ -44,7 +44,7 @@
   z-index: 10;
 }
 
-.loader{
+.loader-container {
   height: 90vh;
   width: 100%;
   display: flex;
@@ -52,30 +52,49 @@
   align-items: center;
   /* background-color: red; */
 }
-.loading-text{
+.loading-text {
   /* background-color: aqua; */
   display: inline;
   font-size: 24px;
 }
 
+.songs-list-container {
+  height: 73vh;
+  overflow: auto;
+  /* overflow: visible; */
+}
+.songs-list-container::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
-  #for-you-text-container {
+  #songs-screen-title-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
-.loader{
-  height: 90vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: red; */
-}
-.loading-text{
-  /* background-color: aqua; */
-  display: inline;
-  font-size: 24px;
-}
+
+  .loader-container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+  }
+  .loading-text {
+    /* background-color: aqua; */
+    display: inline;
+    font-size: 24px;
+  }
+
+  #songs-main-div {
+    height: 86vh;
+  }
+
+  .songs-list-container {
+    height: 67vh !important;
+    overflow: auto;
+    /* overflow: hidden; */
+  }
 }

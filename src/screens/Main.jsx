@@ -3,6 +3,7 @@ import SideBar from "./SideBar";
 import Songs from "./Songs";
 import CurrentSongScreen from "./CurrentSongScreen";
 import { useSelector } from "react-redux";
+import './main.css'
 
 const Main = () => {
   const { gradientColors } = useSelector((state) => state);
