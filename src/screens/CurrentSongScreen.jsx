@@ -218,8 +218,8 @@ const CurrentSongScreen = () => {
           </div>
         </div>
 
-        <div id="div-31" class="displaymax">
-          <div id="div-32" class="button_player">
+        <div class="displaymax">
+          <div  class="button_player">
             <div class="current-song-cover-container">
               <img
                 class="current-song-cover-image"

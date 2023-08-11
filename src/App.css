@@ -24,6 +24,7 @@
 @media screen and (max-width: 768px) {
   .displaymax {
     display: block !important;
+    /* background-color: red; */
   }
   .display_none {
     display: none !important;
