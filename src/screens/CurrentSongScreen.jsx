@@ -15,9 +15,8 @@ import {
 import { colorDetection, toHex } from "@dominate-color-js/core";
 
 const CurrentSongScreen = () => {
-  const { selectedSong, currentSongIndex, songsLength } = useSelector(
-    (state) => state
-  );
+  const { selectedSong, gradientColors, currentSongIndex, songsLength } =
+    useSelector((state) => state);
   // const [isMuted, setIsMuted] = useState(false);
   const dispatch = useDispatch();
   // console.log(currentSongIndex, songsLength);
@@ -50,7 +49,12 @@ const CurrentSongScreen = () => {
       const audioElement = audioRef.current;
 
       const handleTimeUpdate = () => {
-        setCurrentTime(audioElement.currentTime);
+        // console.log(audioElement.currentTime);
+        if (audioElement.currentTime > 217) {
+          handleNextSong();
+        } else {
+          setCurrentTime(audioElement.currentTime);
+        }
       };
 
       const handleLoadedData = () => {
@@ -105,25 +109,8 @@ const CurrentSongScreen = () => {
 
   if (!selectedSong) {
     return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          height: "100vh",
-          // backgroundColor: "red",
-          justifyContent: "center",
-        }}
-      >
-        <h1
-          style={{
-            display: "flex",
-            // backgroundColor: "green",
-            // display: "inline",
-            marginTop: "48vh",
-          }}
-        >
-          Select a song to play
-        </h1>
+      <div id="current-song-screen-main-div">
+        <h1>Select a song to play</h1>
         <div />
       </div>
     );
@@ -218,21 +205,30 @@ const CurrentSongScreen = () => {
           </div>
         </div>
 
-        <div class="displaymax">
-          <div  class="button_player">
-            <div class="current-song-cover-container">
-              <img
-                class="current-song-cover-image"
-                style={{ borderRadius: 50, width: "80px", height: "80px" }}
-                src={selectedSong?.photo}
-                alt="Song Cover"
-              />
-            </div>
-            <div class="current-song-details-mobile">
-              <p style={{ fontSize: "18px" }}>{selectedSong?.title}</p>
-              <p style={{ fontSize: "13px", opacity: "0.5" }}>
-                {selectedSong?.artist}
-              </p>
+        <div
+          className="displaymax"
+          style={{
+            background: `linear-gradient(to right, ${gradientColors.join(
+              ", "
+            )})`,
+          }}
+        >
+          <div class="button_player">
+            <div id="coverimage-songdetails-div">
+              <div class="current-song-cover-container">
+                <img
+                  class="current-song-cover-image"
+                  style={{ borderRadius: 50, width: "80px", height: "80px" }}
+                  src={selectedSong?.photo}
+                  alt="Song Cover"
+                />
+              </div>
+              <div class="current-song-details-mobile">
+                <p style={{ fontSize: "18px" }}>{selectedSong?.title}</p>
+                <p style={{ fontSize: "13px", opacity: "0.5" }}>
+                  {selectedSong?.artist}
+                </p>
+              </div>
             </div>
 
             <div class="player">

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import './main.css'
 
 const Main = () => {
-  const { gradientColors } = useSelector((state) => state);
+  const { gradientColors,selectedSong } = useSelector((state) => state);
 
   
   return (
@@ -22,7 +22,7 @@ const Main = () => {
       <div id="div-2">
         <Songs />
       </div>
-      <div className="list" id="div-3">
+      <div className={`list ${selectedSong?"":"display_none"}`} id="div-3">
         <CurrentSongScreen />
       </div>
     </div>
