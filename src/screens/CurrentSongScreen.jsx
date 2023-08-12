@@ -63,12 +63,13 @@ const CurrentSongScreen = () => {
 
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
       audioElement.addEventListener("loadeddata", handleLoadedData);
-
+      
       return () => {
         audioElement.removeEventListener("timeupdate", handleTimeUpdate);
         audioElement.removeEventListener("loadeddata", handleLoadedData);
       };
     }
+    // eslint-disable-next-line
   }, [selectedSong]);
 
   const handlePlayPause = () => {
