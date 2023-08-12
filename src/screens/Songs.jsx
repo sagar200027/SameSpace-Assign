@@ -109,21 +109,23 @@ const Songs = () => {
 
   return (
     <div id="songs-main-div">
-      <div id="songs-screen-title-container">
-        <h1 id="songs-screen-title-text">{handleTabText()}</h1>
-      </div>
-      <div id="search-songs-container">
-        <input
-          id="search-songs-input"
-          onChange={handleSearch}
-          placeholder="Search Song, Artist"
-        />
-        <div id="search-icon-container">
-          <img
-            style={{  marginTop: "3px" }}
-            alt="Search Icon"
-            src={require("../images/SearchIcon.png")}
+      <div id="songs-screen-header">
+        <div id="songs-screen-title-container">
+          <h1 id="songs-screen-title-text">{handleTabText()}</h1>
+        </div>
+        <div id="search-songs-container">
+          <input
+            id="search-songs-input"
+            onChange={handleSearch}
+            placeholder="Search Song, Artist"
           />
+          <div id="search-icon-container">
+            <img
+              style={{ marginTop: "3px" }}
+              alt="Search Icon"
+              src={require("../images/SearchIcon.png")}
+            />
+          </div>
         </div>
       </div>
 

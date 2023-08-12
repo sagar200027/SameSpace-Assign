@@ -87,7 +87,7 @@
 
   .current-song-cover-container {
     margin-top: auto;
-    margin-left: 29px;
+    /* margin-left: 29px; */
     border: aliceblue solid 5px;
     border-radius: 38px;
   }
@@ -99,11 +99,14 @@
   }
   .button_player {
     display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
   }
 
   .button_player {
     display: flex;
     align-items: center;
+    height: auto;
     gap: 33.4px;
   }
 
@@ -114,15 +117,23 @@
   }
 
   .current-song-details-mobile {
-    width: 90%;
+    /* width: 90%; */
+    margin-left: 10px;
     color: azure;
+    height: fit-content;
   }
 
   .audio_player {
     display: flex;
+    padding: 0 0 10px;
     align-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
+  }
+  #coverimage-songdetails-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }

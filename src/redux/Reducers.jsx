@@ -5,7 +5,7 @@ const initialState = {
   // Your initial state goes here
   //   songsList: [],
   selectedTab: 1,
-  selectedSong: {},
+  selectedSong: null,
   currentSongIndex: 0,
   songsLength: 0,
   gradientColors: [],

@@ -65,7 +65,7 @@
 }
 
 .songs-list-container {
-  height: 73vh;
+  height: 83vh;
   overflow: auto;
   /* overflow: visible; */
 }
@@ -78,6 +78,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  #songs-screen-header {
+    position: sticky;
   }
 
   .loader-container {
@@ -95,12 +99,16 @@
   }
 
   #songs-main-div {
-    height: 86vh;
+    height: 100vh;
+    overflow-y: auto;
+    /* background-color: red; */
   }
 
   .songs-list-container {
-    height: 67vh !important;
+    height: 85vh;
     overflow: auto;
+    /* height: fit-content !important; */
+    /* overflow-y: auto; */
     /* overflow: hidden; */
   }
 }
