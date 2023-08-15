@@ -9,7 +9,9 @@ import {
   FaForward,
   FaVolumeUp,
   FaVolumeOff,
-  FaEllipsisV,
+  FaPauseCircle,
+  FaPlayCircle,
+  FaEllipsisH,
 } from "react-icons/fa";
 // import { Color } from "react-color-surge/dist/index";
 import { colorDetection, toHex } from "@dominate-color-js/core";
@@ -49,7 +51,6 @@ const CurrentSongScreen = () => {
       const audioElement = audioRef.current;
 
       const handleTimeUpdate = () => {
-        // console.log(audioElement.currentTime);
         if (audioElement.currentTime > 217) {
           handleNextSong();
         } else {
@@ -63,7 +64,7 @@ const CurrentSongScreen = () => {
 
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
       audioElement.addEventListener("loadeddata", handleLoadedData);
-      
+
       return () => {
         audioElement.removeEventListener("timeupdate", handleTimeUpdate);
         audioElement.removeEventListener("loadeddata", handleLoadedData);
@@ -171,41 +172,57 @@ const CurrentSongScreen = () => {
               <button
                 className="player-button display_none"
                 id="options-button"
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
               >
-                <FaEllipsisV />
+                <FaEllipsisH />
               </button>
-              <button
-                onClick={handlePreviousSong}
-                className="player-button display_none"
-                id="previous-button"
-              >
-                <FaBackward />
-              </button>
-              <button
-                onClick={handlePlayPause}
-                className="player-button "
-                id="play-pause-button"
-              >
-                {!isPlaying ? <FaPlay /> : <FaPause />}
-              </button>
-              <button
-                onClick={handleNextSong}
-                className="player-button display_none"
-                id="next-button"
-              >
-                <FaForward />
-              </button>
+              <div className="audio-player-buttons">
+                <button
+                  onClick={handlePreviousSong}
+                  className="player-button display_none"
+                  id="previous-button"
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <FaBackward className="icon-backward" />
+                </button>
+                <button
+                  onClick={handlePlayPause}
+                  className="player-button"
+                  id="play-pause-button"
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  {!isPlaying ? (
+                    <FaPlayCircle className="player-button " />
+                  ) : (
+                    <FaPauseCircle className="player-button " />
+                  )}
+                </button>
+                <button
+                  onClick={handleNextSong}
+                  className="player-button display_none"
+                  id="next-button"
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <FaForward className="icon-backward" />
+                </button>
+              </div>
               <button
                 onClick={handleMute}
                 className="player-button display_none"
                 id="mute-button"
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
               >
-                {isMuted ? <FaVolumeOff /> : <FaVolumeUp />}
+                {isMuted ? (
+                  <FaVolumeOff className="icon-vol" />
+                ) : (
+                  <FaVolumeUp className="icon-vol" />
+                )}
               </button>
             </div>
           </div>
         </div>
 
+        {/* mobile view */}
         <div
           className="displaymax"
           style={{
@@ -243,7 +260,6 @@ const CurrentSongScreen = () => {
               {/* <!-- Add your like button code here --> */}
             </div>
           </div>
-
           <div class="audio_player">
             <audio ref={audioRef} src={selectedSong?.url} />
             <div class="center">

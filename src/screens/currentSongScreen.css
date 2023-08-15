@@ -1,5 +1,4 @@
 #current-song-screen-main-div {
-  /* background-color: red; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -21,49 +20,74 @@
   margin: 20px 0;
 }
 .audio-player-buttons-div {
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: flex-start;
 }
-
+.audio-player-buttons {
+  display: flex;
+  width: 155px;
+  height: 50.241px;
+  justify-content: space-between;
+  align-items: center;
+}
 .player-button {
-  width: 50px;
-  height: 50px;
-  background-color: #070e1d;
+  display: flex;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
   border: none;
+  gap: 8px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
-/* Styling for the button icons (you can use font-awesome or other icon libraries) */
 .player-button i {
   font-size: 24px;
   color: #ffffff;
 }
 
-/* Styling for button hover effects */
-.player-button:hover {
-  background-color: #14a048;
-}
-
-/* Styling for button active (pressed) effects */
 .player-button:active {
   background-color: #0e7139;
+}
+.icon-next {
+  width: 25px;
+  height: 25px;
+  gap: 8px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.icon-backward {
+  width: 23px;
+  height: 23px;
+  gap: 8px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.icon-vol {
+  width: 20px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.icon-ellipsis {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 @media screen and (max-width: 768px) {
   .audio-player-buttons-div {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   #current-song-screen-sub-div {
@@ -73,8 +97,8 @@
   }
 
   .player-button {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: px;
     background-color: #1db954;
     border: none;
     border-radius: 50%;
@@ -87,7 +111,6 @@
 
   .current-song-cover-container {
     margin-top: auto;
-    /* margin-left: 29px; */
     border: aliceblue solid 5px;
     border-radius: 38px;
   }
@@ -106,18 +129,15 @@
   .button_player {
     display: flex;
     align-items: center;
-    height: auto;
     gap: 33.4px;
   }
 
   .current-song-cover-image {
     width: 100px;
     height: 100px;
-    /* Add any additional styles for the song image here */
   }
 
   .current-song-details-mobile {
-    /* width: 90%; */
     margin-left: 10px;
     color: azure;
     height: fit-content;
