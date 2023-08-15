@@ -129,7 +129,7 @@ const Songs = () => {
         </div>
       </div>
 
-      <div className="songs-list-container">
+      <div className="songs-list-container" style={{height:selectedSong?"70vh":"85vh"}}>
         {filteredData?.map((item, index) => {
           // console.log('index',item,index);
           return (
