@@ -1,1 +1,1 @@
-App link - https://main--reliable-kataifi-bcd58b.netlify.app/
+App link - https://main--splendid-salamander-91f852.netlify.app/
