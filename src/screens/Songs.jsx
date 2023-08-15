@@ -129,7 +129,11 @@ const Songs = () => {
         </div>
       </div>
 
-      <div className="songs-list-container" style={{height:selectedSong?"70vh":"85vh"}}>
+      <div
+        className={`songs-list-container ${
+          selectedSong ? "mobile-songs-height-70" : "mobile-songs-height-85"
+        }`}
+      >
         {filteredData?.map((item, index) => {
           // console.log('index',item,index);
           return (

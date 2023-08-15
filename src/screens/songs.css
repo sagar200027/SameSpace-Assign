@@ -83,8 +83,8 @@
     height: fit-content;
   }
 
-  #songs-screen-title-text{
-    margin-top: 10PX;
+  #songs-screen-title-text {
+    margin-top: 10px;
   }
 
   #songs-screen-header {
@@ -117,5 +117,11 @@
     /* height: fit-content !important; */
     /* overflow-y: auto; */
     /* overflow: hidden; */
+  }
+  .mobile-songs-height-85 {
+    height: 85vh;
+  }
+  .mobile-songs-height-70 {
+    height: 70vh;
   }
 }
